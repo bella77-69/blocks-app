@@ -5,7 +5,7 @@ export default function Header() {
     <header className="bg-gray-700 text-white">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         <Link href="/" className="text-xl font-bold ">
-          Home
+          Blocks
         </Link>
 
       </div>
