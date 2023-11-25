@@ -1,9 +1,6 @@
 import React from "react";
 import { db } from "@/db";
 import { redirect } from "next/navigation";
-//step 4: create a server action. it is a function that will be called when the form is submitted
-//step 5: in the server action we want to validate the input and create a new block in the database using prisma
-//step 6: redirect the user back to the home page.
 
 function page() {
   async function createBlock(formData: FormData) {

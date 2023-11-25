@@ -3,12 +3,6 @@ import { db } from "@/db";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 
-// interface Block {
-//   id: number;
-//   title: string;
-//   code: string;
-// }
-
 interface BlockParams {
   params: {
     id: string;
@@ -39,7 +33,7 @@ export default async function page({ params }: BlockParams) {
         {block.code}
 
         <div className="ml-auto">
-          <Link href={`/blocks/${block.id}/edit`}>
+        <Link href={`/blocks/${block.id}/edit`}>
             <button
               className="rounded p-2 mr-2 bg-blue-600 text-white hover:bg-blue-400"
               type="submit"
