@@ -7,7 +7,6 @@ interface BlockParams {
     id: string;
   };
 }
-// value in the input and textarea is the block.title and block.code
 
 export default async function Edit({ params }: BlockParams) {
   const id = params.id;

@@ -50,7 +50,7 @@ export default async function page({ params }: BlockParams) {
               Edit
             </button>
           </Link>
-          <Link href={"/"}>
+          <Link href={`/`}>
             <button
               className="btn text-[#0b0a0a] hover:text-[#FFFFFF]"
               type="submit"
