@@ -21,7 +21,7 @@ export default async function page({ params }: BlockParams) {
   }
 
   return (
-    <div className="min-h-screen p-4 flex flex-col">
+    <div className="min-h-screen p-2">
       <div className="flex-column m-4">
         <h1 className="text-[#0b0a0a] font-bold text-xl">View Block</h1>
         <Link href={"/"}>

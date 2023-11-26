@@ -7,6 +7,7 @@ interface BlockParams {
     id: string;
   };
 }
+// value in the input and textarea is the block.title and block.code
 
 export default async function Edit({ params }: BlockParams) {
   const id = params.id;
@@ -20,39 +21,49 @@ export default async function Edit({ params }: BlockParams) {
       where: { id: Number(params.id) },
       data: { title, code },
     });
-    redirect("/");
+    redirect(`/blocks/${id}`);
   }
 
+  const block = await db.block.findUnique({
+    where: { id: Number(id) },
+  });
+
   return (
-    <form action={updateBlock} className="bg-gray-100 min-h-screen p-4">
-      <h1 className="font-bold text-xl">Edit Block</h1>
-      <div className="flex flex-col gap-4">
-        <div className="flex gap-4">
-          <label className="w-12" htmlFor="title">
-            Title
-          </label>
-          <input
-            name="title"
-            id="title"
-            className="border rounded p-2 w-full"
-          />
+    <form action={updateBlock} className="min-h-screen p-2">
+      <div className="flex-column m-4">
+        <h1 className="text-[#0b0a0a] font-bold text-xl">Edit Block</h1>
+        <div className="flex-column gap-6 mt-4">
+          <div className="flex gap-4 ">
+            <label className="text-[#0b0a0a] w-12" htmlFor="title">
+              Title
+            </label>
+            <input
+              name="title"
+              id="title"
+              placeholder="Title"
+              className="border rounded p-2 w-full"
+              defaultValue={block?.title ?? ""}
+            />
+          </div>
+          <div className="flex gap-4">
+            <label className=" text-[#0b0a0a] w-12" htmlFor="code">
+              Code
+            </label>
+            <textarea
+              name="code"
+              className="border rounded p-2 w-full"
+              id="code"
+              placeholder="Code"
+              defaultValue={block?.code ?? ""}
+            />
+          </div>
+          <div className="flex">
+            <button type="submit" className="btn hover:text-[#FFFFFF] m-2">
+              Update
+            </button>
+            <button className="btn hover:text-[#FFFFFF] m-2">Back</button>
+          </div>
         </div>
-        <div className="flex gap-4">
-          <label className="w-12" htmlFor="code">
-            Code
-          </label>
-          <textarea
-            name="code"
-            className="border rounded p-2 w-full"
-            id="code"
-          />
-        </div>
-        <button
-          type="submit"
-          className="rounded p-2 bg-blue-600 text-white hover:bg-blue-400"
-        >
-          Update
-        </button>
       </div>
     </form>
   );

@@ -14,7 +14,7 @@ export default async function Home() {
     </Link>
   ));
   return (
-    <div className=" min-h-screen p-4">
+    <div className="min-h-screen p-4">
       <div className="flex-row m-2">
         <h1 className="text-[#0b0a0a] font-bold text-xl">Blocks</h1>
         <Link
