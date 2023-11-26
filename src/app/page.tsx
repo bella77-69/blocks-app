@@ -7,21 +7,24 @@ export default async function Home() {
     <Link
       key={block.id}
       href={`/blocks/${block.id}`}
-      className="flex justify-between items-center p-2 border rounded hover:bg-gray-200"
+      className="flex-row p-2 bg-[#f7f8f8] rounded shadow-md hover:shadow-lg transition duration-300"
     >
       {block.title}
-      <div>View</div>
+      <div className="btn text-[#0b0a0a] hover:text-[#FFFFFF]">View</div>
     </Link>
   ));
   return (
-    <div className="bg-gray-100 min-h-screen p-4">
-      <div className="flex m-2 justify-between items-center ">
-        <h1 className="font-bold text-xl">Blocks</h1>
-        <Link href="/blocks/new" className="border rounded p-2">
+    <div className=" min-h-screen p-4">
+      <div className="flex-row m-2">
+        <h1 className="text-[#0b0a0a] font-bold text-xl">Blocks</h1>
+        <Link
+          href="/blocks/new"
+          className="btn text-[#0b0a0a] hover:text-[#FFFFFF]"
+        >
           New
         </Link>
       </div>
-      <div className="flex flex-col gap-2">{renderedBlocks}</div>
+      <div className="flex-column gap-6 mt-6">{renderedBlocks}</div>
     </div>
   );
 }

@@ -21,35 +21,47 @@ export default async function page({ params }: BlockParams) {
   }
 
   return (
-    <div className="bg-gray-100 min-h-screen p-4 flex flex-col gap-4">
-      <div className="flex m-2 justify-between items-center">
-        <h1 className="font-bold text-xl">View Block</h1>
+    <div className="min-h-screen p-4 flex flex-col">
+      <div className="flex-column m-4">
+        <h1 className="text-[#0b0a0a] font-bold text-xl">View Block</h1>
+        <Link href={"/"}>
+          <button
+            className="btn text-[#0b0a0a] hover:text-[#FFFFFF] mt-3"
+            type="submit"
+          >
+            Back
+          </button>
+        </Link>
       </div>
 
-      <div className="flex gap-4 m-3 items-center">
-        <label className="w-12" htmlFor="title">
-          {block.title}
-        </label>
-        {block.code}
+      <div className="flex justify-between gap-4 m-6">
+        <div className="flex items-center">
+          <label className="text-[#0b0a0a] font-bold" htmlFor="title">
+            {block.title}
+          </label>
+        </div>
 
-        <div className="ml-auto">
-        <Link href={`/blocks/${block.id}/edit`}>
+        <div className="m-3">
+          <Link href={`/blocks/${block.id}/edit`}>
             <button
-              className="rounded p-2 mr-2 bg-blue-600 text-white hover:bg-blue-400"
+              className="btn m-2 text-[#0b0a0a] hover:text-[#FFFFFF]"
               type="submit"
             >
               Edit
             </button>
           </Link>
-          <Link href={`/blocks/${block.id}/delete`}>
+          <Link href={"/"}>
             <button
-              className="rounded p-2 bg-blue-600 text-white hover:bg-blue-400"
+              className="btn text-[#0b0a0a] hover:text-[#FFFFFF]"
               type="submit"
             >
               Delete
             </button>
           </Link>
         </div>
+      </div>
+      <div className="flex gap-4 m-3 bg-[#f7f8f8] rounded shadow-md hover:shadow-lg transition duration-300">
+        <code className="text-[#0b0a0a] p-6">{block.code}</code>
       </div>
     </div>
   );

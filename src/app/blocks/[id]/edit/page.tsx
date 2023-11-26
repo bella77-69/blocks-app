@@ -16,10 +16,12 @@ export default async function Edit({ params }: BlockParams) {
     const title = formData.get("title") as string;
     const code = formData.get("code") as string;
 
-    await db.block.update({ where: { id: Number(params.id) }, data: { title, code } });
+    await db.block.update({
+      where: { id: Number(params.id) },
+      data: { title, code },
+    });
     redirect("/");
   }
-
 
   return (
     <form action={updateBlock} className="bg-gray-100 min-h-screen p-4">
@@ -32,7 +34,6 @@ export default async function Edit({ params }: BlockParams) {
           <input
             name="title"
             id="title"
-
             className="border rounded p-2 w-full"
           />
         </div>
@@ -44,10 +45,12 @@ export default async function Edit({ params }: BlockParams) {
             name="code"
             className="border rounded p-2 w-full"
             id="code"
-
           />
         </div>
-        <button type='submit' className="rounded p-2 bg-blue-600 text-white hover:bg-blue-400">
+        <button
+          type="submit"
+          className="rounded p-2 bg-blue-600 text-white hover:bg-blue-400"
+        >
           Update
         </button>
       </div>

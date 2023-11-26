@@ -3,3 +3,26 @@
 @tailwind utilities;
 
 
+@layer components {
+    .btn {
+        background-color: #8cc9b3;
+        color: #0b0a0a;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+    }
+
+    .btn:hover {
+        background-color: #28735e;
+    }
+
+    .flex-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .flex-column {
+        display: flex;
+        flex-direction: column;
+    }
+}
