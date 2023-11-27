@@ -14,17 +14,19 @@ export default async function Home() {
     </Link>
   ));
   return (
-    <div className="min-h-screen p-4">
-      <div className="flex-row m-2">
-        <h1 className="text-[#0b0a0a] font-bold text-xl">Blocks</h1>
-        <Link
-          href="/blocks/new"
-          className="btn text-[#0b0a0a] hover:text-[#FFFFFF]"
-        >
-          New
-        </Link>
+    <div className="flex justify-center min-h-screen mt-8">
+      <div className="w-3/5">
+        <div className="flex-row m-2">
+          <h1 className="text-[#0b0a0a] font-bold text-xl">Blocks</h1>
+          <Link
+            href="/blocks/new"
+            className="btn text-[#0b0a0a] hover:text-[#FFFFFF]"
+          >
+            New
+          </Link>
+        </div>
+        <div className="flex-column gap-6 mt-10">{renderedBlocks}</div>
       </div>
-      <div className="flex-column gap-6 mt-6">{renderedBlocks}</div>
     </div>
   );
 }

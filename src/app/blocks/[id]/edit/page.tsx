@@ -28,6 +28,8 @@ export default async function Edit({ params }: BlockParams) {
   });
 
   return (
+    <div className="flex justify-center min-h-screen mt-8">
+        <div className="w-3/5">
     <form action={updateBlock} className="min-h-screen p-2">
       <div className="flex-column m-4">
         <h1 className="text-[#0b0a0a] font-bold text-xl">Edit Block</h1>
@@ -65,5 +67,7 @@ export default async function Edit({ params }: BlockParams) {
         </div>
       </div>
     </form>
+    </div>
+    </div>
   );
 }
